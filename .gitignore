@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Large data files
+data/candidates.jsonl
+data/*.jsonl
+data/*.jsonl.gz
+
+# Generated outputs (large)
+outputs/embeddings.pkl
+outputs/full_feature_scores.csv
+
+# Model cache
+.cache/
+models/
+*.bin
+*.pt
+*.pkl
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Jupyter checkpoints
+.ipynb_checkpoints/

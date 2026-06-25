@@ -1,0 +1,39 @@
+[Phase 1] Scoring 100K candidates with rule-based features...
+  20,000 / 100,000  (3s)
+  40,000 / 100,000  (6s)
+  60,000 / 100,000  (9s)
+  80,000 / 100,000  (12s)
+  100,000 / 100,000  (15s)
+  Phase 1 done: 100,000 candidates in 15.2s  |  honeypots=38
+
+[Phase 2] Semantic scoring top 2000...
+  sentence-transformers unavailable → using TF-IDF fallback
+  Phase 2 done in 2.3s
+
+[Phase 3] Final scores & selection...
+[Phase 4] Generating reasoning...
+
+✅ Pipeline complete in 17.6s
+
+=== TOP 10 ===
+  #1 CAND_0081846  score=0.8446  skill=0.646  title=0.892  sem=1.000  beh=1.000
+     Lead AI Engineer, 6.7 yrs — vector DB + embeddings production experience; ranking evaluation (NDCG/MRR/L2R). Open to work; active 46d ago (recent), 73% recruiter response rate, 30d notice (immediate); Jaipur, Rajasthan, India, open to relocate.
+  #2 CAND_0002025  score=0.8338  skill=0.547  title=1.000  sem=0.948  beh=1.000
+     Senior AI Engineer, 5.9 yrs — vector DB + embeddings production experience; LLM fine-tuning (LoRA/QLoRA/PEFT); active open-source contributor (GitHub=96.9/100). Open to work; active 23d ago, 80% recruiter response rate, 30d notice (immediate); Trivandrum, Kerala, India.
+  #3 CAND_0071974  score=0.8254  skill=0.566  title=1.000  sem=0.853  beh=1.000
+     Senior AI Engineer, 7.8 yrs — vector DB + embeddings production experience; ranking evaluation (NDCG/MRR/L2R); LLM fine-tuning (LoRA/QLoRA/PEFT). Open to work; active 63d ago (recent), 76% recruiter response rate, 45d notice; Vizag, Andhra Pradesh, India.
+  #4 CAND_0018499  score=0.8159  skill=0.509  title=0.900  sem=0.929  beh=1.000
+     Senior Machine Learning Engineer, 7.2 yrs — vector DB + embeddings production experience; ranking evaluation (NDCG/MRR/L2R); LLM fine-tuning (LoRA/QLoRA/PEFT). Open to work; active 36d ago (recent), 61% recruiter response rate, 15d notice (immediate); Noida, Uttar Pradesh (ideal).
+  #5 CAND_0077337  score=0.8113  skill=0.546  title=1.000  sem=0.754  beh=1.000
+     Staff Machine Learning Engineer, 7.0 yrs — vector DB + embeddings production experience; ranking evaluation (NDCG/MRR/L2R); LLM fine-tuning (LoRA/QLoRA/PEFT). Open to work; active 23d ago, 95% recruiter response rate, 60d notice; Kochi, Kerala, India, open to relocate.
+  #6 CAND_0086022  score=0.8058  skill=0.540  title=0.971  sem=0.906  beh=1.000
+     Senior Applied Scientist, 5.3 yrs — vector DB + embeddings production experience; LLM fine-tuning (LoRA/QLoRA/PEFT); active open-source contributor (GitHub=75.2/100). Open to work; active 64d ago (recent), 55% recruiter response rate, 0d notice (immediate); Kolkata, West Bengal, India, open to relocate.
+  #7 CAND_0008425  score=0.8001  skill=0.545  title=0.950  sem=0.848  beh=1.000
+     Senior NLP Engineer, 7.8 yrs — vector DB + embeddings production experience; ranking evaluation (NDCG/MRR/L2R); LLM fine-tuning (LoRA/QLoRA/PEFT). Open to work; active 54d ago (recent), 66% recruiter response rate, 90d notice (buyout per JD); Kolkata, West Bengal, India.
+  #8 CAND_0041669  score=0.7986  skill=0.484  title=0.987  sem=0.750  beh=1.000
+     Recommendation Systems Engineer, 8.0 yrs — vector DB + embeddings production experience; ranking evaluation (NDCG/MRR/L2R); LLM fine-tuning (LoRA/QLoRA/PEFT). Open to work; active 73d ago (recent), 77% recruiter response rate, 60d notice; Noida, Uttar Pradesh (ideal).
+  #9 CAND_0011687  score=0.7912  skill=0.438  title=1.000  sem=0.890  beh=1.000
+     Senior NLP Engineer, 7.8 yrs — vector DB + embeddings production experience; LLM fine-tuning (LoRA/QLoRA/PEFT); active open-source contributor (GitHub=76.3/100). Open to work; active 39d ago (recent), 89% recruiter response rate, 15d notice (immediate); Indore, Madhya Pradesh, India.
+  #10 CAND_0068811  score=0.7830  skill=0.472  title=1.000  sem=0.752  beh=1.000
+     Applied ML Engineer, 8.0 yrs — vector DB + embeddings production experience; LLM fine-tuning (LoRA/QLoRA/PEFT). Open to work; active 28d ago, 42% recruiter response rate, 30d notice (immediate); Pune, Maharashtra (ideal).
+✅ Submission written: submission/submission.csv  (100 rows)

@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="720" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" fill="#f1f5f9" font-size="24" font-weight="700">Redrob Candidate Ranker — Pipeline</text>
+  <text x="500" y="64" text-anchor="middle" fill="#94a3b8" font-size="13">100,000 candidates → 100 ranked results in ~15 seconds (CPU only)</text>
+
+  <!-- Input -->
+  <rect x="380" y="90" width="240" height="50" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="500" y="120" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="600">candidates.jsonl (465MB)</text>
+
+  <line x1="500" y1="140" x2="500" y2="170" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 1 -->
+  <rect x="80" y="175" width="840" height="140" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="100" y="200" fill="#22c55e" font-size="15" font-weight="700">PHASE 1 — Rule-Based Scoring (~14s, ALL 100,000 candidates)</text>
+
+  <rect x="100" y="215" width="220" height="80" rx="6" fill="#0f172a" stroke="#475569"/>
+  <text x="210" y="235" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">features.py</text>
+  <text x="210" y="253" text-anchor="middle" fill="#94a3b8" font-size="10">skill_match · title_career</text>
+  <text x="210" y="267" text-anchor="middle" fill="#94a3b8" font-size="10">experience_fit · behavioral</text>
+  <text x="210" y="281" text-anchor="middle" fill="#94a3b8" font-size="10">location · education · github</text>
+
+  <rect x="360" y="215" width="220" height="80" rx="6" fill="#0f172a" stroke="#475569"/>
+  <text x="470" y="235" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">honeypot_detector.py</text>
+  <text x="470" y="253" text-anchor="middle" fill="#94a3b8" font-size="10">timeline impossibility</text>
+  <text x="470" y="267" text-anchor="middle" fill="#94a3b8" font-size="10">expert + zero duration</text>
+  <text x="470" y="281" text-anchor="middle" fill="#94a3b8" font-size="10">endorsement contradictions</text>
+
+  <rect x="620" y="215" width="260" height="80" rx="6" fill="#0f172a" stroke="#475569"/>
+  <text x="750" y="235" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">rule_score</text>
+  <text x="750" y="253" text-anchor="middle" fill="#94a3b8" font-size="10">Σ(feature × weight) × hp_penalty</text>
+  <text x="750" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">sorted, top-2000 kept</text>
+
+  <line x1="500" y1="315" x2="500" y2="345" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 2 -->
+  <rect x="80" y="350" width="840" height="90" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="100" y="375" fill="#f59e0b" font-size="15" font-weight="700">PHASE 2 — Semantic Scoring (~4s cached / ~90s live, TOP 2,000 only)</text>
+  <text x="100" y="398" fill="#cbd5e1" font-size="12">semantic.py · MiniLM-L6-v2 (22M params, 384-dim) · cosine similarity vs JD text</text>
+  <text x="100" y="416" fill="#94a3b8" font-size="11">candidate_to_text(): headline + summary + top-15 skills + top-4 career descriptions</text>
+
+  <line x1="500" y1="440" x2="500" y2="470" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 3 -->
+  <rect x="80" y="475" width="840" height="110" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+  <text x="100" y="500" fill="#ec4899" font-size="15" font-weight="700">PHASE 3 — Final Score Combination</text>
+  <text x="100" y="525" fill="#cbd5e1" font-size="12" font-family="monospace">base = Σ(feature_i × weight_i)  +  semantic × 0.15</text>
+  <text x="100" y="545" fill="#cbd5e1" font-size="12" font-family="monospace">behavior_mult = 0.60 + behavioral × 0.40</text>
+  <text x="100" y="565" fill="#cbd5e1" font-size="12" font-family="monospace">final = (base × behavior_mult + behavioral × 0.10) × honeypot_penalty</text>
+
+  <line x1="500" y1="585" x2="500" y2="615" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 4 -->
+  <rect x="80" y="620" width="840" height="60" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="100" y="645" fill="#6366f1" font-size="15" font-weight="700">PHASE 4 — Reasoning Generation</text>
+  <text x="100" y="665" fill="#cbd5e1" font-size="12">reasoning.py · rank-tier tone · factual claims only · no hallucination</text>
+
+  <line x1="500" y1="680" x2="500" y2="700" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="500" y="715" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="700">submission.csv (100 rows, validated)</text>
+</svg>

@@ -1,0 +1,71 @@
+team_name: "CHAOS"
+
+primary_contact:
+name: "Krishna Choudhary"
+email: "[krzznh@gmail.com](mailto:krzznh@gmail.com)"
+phone: "+918460718207"
+
+team_members:
+
+* name: "Krishna Choudhary"
+  email: "[krzznh@gmail.com](mailto:krzznh@gmail.com)"
+  role: "Team Lead"
+
+* name: "Ritik Ahire"
+  email: "ADD_EMAIL_HERE"
+  role: "Team Member"
+
+* name: "Anup Verma"
+  email: "ADD_EMAIL_HERE"
+  role: "Team Member"
+
+github_repo: "https://github.com/krzznh/CHAOS-Redrob-TalentRank-AI"
+
+sandbox_link: ""
+
+# Leave empty since not deployed
+
+reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./submission/submission.csv"
+
+compute:
+platform: "Local CPU Machine"
+cpu_cores: 4
+ram_gb: 16
+python_version: "3.14"
+os: "Windows"
+uses_gpu_for_inference: false
+has_network_during_ranking: false
+pre_computation_required: false
+pre_computation_time_minutes: 0
+
+ai_tools_used:
+
+* "Claude"
+* "ChatGPT"
+
+ai_usage_summary: |
+AI tools were used during development mainly as assistants for debugging,
+brainstorming ideas, generating initial code scaffolding, and helping with
+project organization. The project still required manual integration,
+testing, running the pipeline on the full 100K candidate dataset, fixing
+issues, and tuning the ranking system to make everything work end-to-end.
+The final ranking pipeline runs locally and fully offline.
+
+methodology_summary: |
+The project uses a multi-signal candidate ranking approach that combines
+rule-based scoring with semantic similarity. Candidates are evaluated using
+multiple factors including skill match, job title alignment, years of
+experience fit, behavioral signals such as recruiter response rate and
+activity, semantic similarity using MiniLM embeddings, and additional
+signals like GitHub activity and education. A honeypot detection step is
+also used to identify suspicious or inconsistent profiles. The system was
+designed to process the full 100K candidate dataset efficiently while
+staying within challenge runtime limits.
+
+declarations:
+read_submission_spec: true
+code_is_original_work: true
+no_collusion: true
+honeypot_check_done: true
+reproduction_tested: true
+
